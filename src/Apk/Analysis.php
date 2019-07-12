@@ -1,4 +1,5 @@
 <?php
+namespace Lwm\Apk;
 /**
  * Created by PhpStorm.
  * User: linweimin
