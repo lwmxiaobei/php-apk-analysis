@@ -13,6 +13,6 @@
         "php": ">=5.4"
     },
     "autoload": {
-        "Lwm\\Apk": "src/Apk"
+        "Lwm\\Apk\\": "src/Apk"
     }
 }
