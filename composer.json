@@ -1,0 +1,18 @@
+{
+    "name": "linweimin/php-apk-analysis",
+    "description": "一款解析安卓apk包信息的工具",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "xiaobei",
+            "email": "806641926@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "lwm\\apk": "src/analysis"
+    }
+}
