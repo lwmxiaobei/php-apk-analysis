@@ -38,13 +38,13 @@ class Analysis
     public $minSdkVersion;
 
     /**
-     * 获取apk包信息
+     * 解析apk包
      *
      * @param $file
      *
-     * @return mixed
+     * @return bool
      */
-    public function getApkInfo($file)
+    public function analyzing($file)
     {
         if (!is_file($file)) {
             return false;
@@ -79,17 +79,27 @@ class Analysis
             $pattern = "/sdkVersion:'(.*)'/isU";
             $this->minSdkVersion = preg_match($pattern, $str, $m) ? $m[1] : '';
 
-            $apkInfo = [
-                'packageName' => $this->packageName,
-                'appName' => $this->appName,
-                'versionName' => $this->versionName,
-                'versionCode' => $this->versionCode,
-            ];
-
-            return $apkInfo;
+            return true;
         }
 
 
-        return [];
+        return false;
+    }
+
+
+    /**
+     * 获取apk信息
+     * @return array
+     */
+    public function getApkInfo()
+    {
+        $apkInfo = [
+            'packageName' => $this->packageName,
+            'appName' => $this->appName,
+            'versionName' => $this->versionName,
+            'versionCode' => $this->versionCode,
+        ];
+
+        return $apkInfo;
     }
 }
