@@ -50,7 +50,7 @@ class Analysis
         if (!is_file($file)) {
             return false;
         }
-        $command = '/usr/bin/aapt dump badging ' . $file;
+        $command = 'aapt dump badging ' . $file;
         exec($command, $out, $return);
 
         if($return == 0) {
