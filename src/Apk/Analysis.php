@@ -1,45 +1,52 @@
 <?php
+
 namespace Lwm\Apk;
+
 /**
  * Created by PhpStorm.
  * User: linweimin
  * Date: 2019-07-12
- * Time: 10:51
+ * Time: 10:51.
  */
 class Analysis
 {
     /**
-     * 包名
+     * 包名.
+     *
      * @var
      */
     public $packageName;
 
     /**
-     * 应用名
+     * 应用名.
+     *
      * @var
      */
     public $appName;
 
     /**
-     * 版本名
+     * 版本名.
+     *
      * @var
      */
     public $versionName;
 
     /**
-     * 版本号
+     * 版本号.
+     *
      * @var
      */
     public $versionCode;
 
     /**
-     * 最低SDK版本
+     * 最低SDK版本.
+     *
      * @var
      */
     public $minSdkVersion;
 
     /**
-     * 解析apk包
+     * 解析apk包.
      *
      * @param $file
      *
@@ -50,12 +57,12 @@ class Analysis
         if (!is_file($file)) {
             return false;
         }
-        $command = 'aapt dump badging ' . $file;
+        $command = 'aapt dump badging '.$file;
         exec($command, $out, $return);
 
-        if($return == 0) {
+        if ($return == 0) {
             $str = '';
-            foreach($out as $val) {
+            foreach ($out as $val) {
                 $str .= $val;
             }
 
@@ -83,20 +90,19 @@ class Analysis
             return true;
         }
 
-
         return false;
     }
 
-
     /**
-     * 获取apk信息
+     * 获取apk信息.
+     *
      * @return array
      */
     public function getApkInfo()
     {
         $apkInfo = [
             'packageName' => $this->packageName,
-            'appName' => $this->appName,
+            'appName'     => $this->appName,
             'versionName' => $this->versionName,
             'versionCode' => $this->versionCode,
         ];
